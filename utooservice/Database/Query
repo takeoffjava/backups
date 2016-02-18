@@ -1,0 +1,140 @@
+
+
+
+/*!40000 ALTER TABLE `U2_0xS_TBL_LKP_car_models` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_LKP_car_models` (`PK_CLM_car_model_ID`,`CLM_car_model_description`,`CLM_car_model_name`,`CLM_is_deleted`) VALUES 
+ (1,'Luxe','Luxury',0x00),
+ (2,'SL','Super Luxe',0x00),
+ (3,'SUV','SUV',0x00);
+/*!40000 ALTER TABLE `u2_0xs_tbl_lkp_car_models` ENABLE KEYS */;
+
+
+/*!40000 ALTER TABLE `U2_0xS_TBL_LKP_car_features` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_LKP_car_features` (`PK_CLM_car_feature_ID`,`CLM_color`,`CLM_is_deleted`,`CLM_photo_file_ID`,`CLM_register_NO`,`CLM_seat_count`,`CLM_vehicle_year`,`FK_CLM_car_model_ID`) VALUES 
+ (1,'black',0x01,'default.png','345678',3,2015,1),
+ (2,'orange',0x00,'default.png','345679',5,2015,2),
+ (3,'orange',0x00,'default.png','345679',5,2015,3);
+/*!40000 ALTER TABLE `u2_0xs_tbl_lkp_car_features` ENABLE KEYS */;
+
+
+
+
+/*!40000 ALTER TABLE `u2_0xs_tbl_lkp_response_codes` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_LKP_response_codes` (`PK_CLM_response_ID`,`CLM_code`,`CLM_response_description`) VALUES 
+ (1,5000,'Invalid data format'),
+ (2,5001,'Mobile number is already exists'),
+ (3,5002,'OTP has been successfully...'),
+ (4,5003,'Invalid Mobile Number'),
+ (5,5004,'SMS server is busy...'),
+ (6,5005,'Server is busy...'),
+ (7,5006,'No records in the list'),
+ (8,5007,'Invalid Request'),
+ (9,5008,'Mobile number hasn\'t existed'),
+ (10,5009,'OTP is verified'),
+ (11,5010,'OTP is not valid'),
+ (12,5011,'OTP is pending'),
+ (13,5012,'New Password has been updated successfully'),
+ (14,5013,'Invalid Credential'),
+ (15,5014,'OTP is already verified'),
+ (16,5015,'Token Server busy'),
+ (17,5016,'Upload Failure'),
+ (18,5017,'Uploaded Successfully'),
+ (19,5018,'Car details are pending'),
+ (20,5019,'License details are pending'),
+ (21,5020,'Updated Successfully'),
+ (22,5021,'Mobile number is not activated'),
+ (23,5022,'New Ride is booked'),
+ (24,5023,'Invalid Object '),
+ (25,5024,'Thanks for your rating'),
+ (26,5025,'Invalid Access ID'),
+ (27,5026,'Logout Successfully'),
+ (28,5027,'Mobile number Or License Number is already exists'),
+ (29,5028,'Account has been deactivated successfully.'),
+ (30,5029,'You have been blocked the driver.'),
+ (31,5030,'Invalid Booking Number'),
+ (32,5031,'License side should not be empty'),
+ (33,5032,'Resend OTP Chance Expired '),
+ (34,5033,'Resend OTP Chance Finished'),
+ (35,5034,'Resend OTP One More Chance is Left'),
+ (36,5035,'No Drivers are available'),
+ (37,5036,'Rating points should not above five'),
+ (38,5037,'Channel added successfully'),
+ (39,5038,'Ice has been added successfully'),
+ (40,5039,'Ice contacts list empty'),
+ (41,5040,'Only 3 contacts are allowed'),
+ (42,5041,'Primary Contact had been changed'),
+ (43,5042,'One ICE contact has been deleted'),
+ (44,5043,'You have been blocked the passenger'),
+ (45,5044,'Invalid ICE contacts'),
+ (46,5045,'The Promo Code is valid'),
+ (47,5046,'The Promo Code is invalid'),
+ (48,5047,'Invalid Tariff ID'),
+ (49,5048,'ICE contact was informed'),
+ (50,5049,'Invalid Invoice number '),
+ (51,5050,'Paid Successfully'),
+ (52,5051,'Booking has been cancelled successfully'),
+ (53,5052,'You have been unblocked the driver'),
+ (54,5053,'You have been unblocked the passenger.'),
+ (55,5054,'Invalid QR code'),
+ (56,5055,'Resend OTP two more chance is left'),
+ (57,5056,'Invalid QR Code'),
+ (58,5057,'QRcode is active'),
+ (59,5058,'QR code is inactive'),
+ (60,5059,'QR code is Not verified'),
+ (61,5060,'FTP Server is busy'),
+ (62,5061,'File not found '),
+ (63,5062,'Trip Already Started'),
+ (64,5063,'Only 3 Favourites are allowed'),
+ (65,5064,'Favourites Added Successfully'),
+ (66,5065,'Session Expired'),
+ (67,5066,'Cannot Rate This Driver'),
+ (68,5067,'Otp Is Expired'),
+  (69,5068,'You can book after completing your current ride'),
+ (70,5069,'No Bookings are available'),
+ (68,5070,'No Records are available');/*!40000 ALTER TABLE `u2_0xs_tbl_lkp_response_codes` ENABLE KEYS */;
+
+
+/*!40000 ALTER TABLE `u2_0xs_tbl_lkp_server_path` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_LKP_Server_Path` (`PK_CLM_Server_Path_ID`,`CLM_Accident_Audio`,`CLM_Accident_Image`,`CLM_Base_Folder`,`CLM_Base_Path`,`CLM_Car`,`CLM_Finger_Print`,`CLM_IBEACON_ID`,`CLM_License`,`CLM_Passenger_Profile_Photo`,`CLM_Profile_Photo`,`CLM_Promo_CODE`) VALUES 
+ (1,'0xf_accident_audio','0xf_accident_image','utooserver','http://www.utootaxi.com/','0xf_car_images','0xf_fingerprint_images','12203846ff','0xf_licence_images','0xf_passenger_profile_photo','0xf_driver_profile_photo','UPXWEASAEE');
+/*!40000 ALTER TABLE `u2_0xs_tbl_lkp_server_path` ENABLE KEYS */;
+
+
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_blocked_reasons` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_MST_Blocked_Reasons` (`PK_CLM_blocked_reason_ID`,`CLM_reason_type_name`) VALUES 
+ (1,'Seems unprofessional'),
+ (2,'Bad Ride experience'),
+ (3,'Driver don\'t know route'),
+ (4,'Others');
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_blocked_reasons` ENABLE KEYS */;
+
+
+
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_location` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_MST_location` (`PK_CLM_location_ID`,`CLM_channel`,`CLM_created_on`,`CLM_East_longitude`,`CLM_location_name`,`CLM_north_latitude`,`CLM_South_latitude`,`CLM_updated_on`,`CLM_West_longitude`) VALUES 
+ (1,'VC4WZFAMT44VXRUPY74CVMZU4GPZ7A','2015-10-31 15:09:59',80.33632660,'CHENNAI',13.26116562,12.83395481,NULL,80.08170319),
+ (2,'4ZRTW6CPHHTRG4TFHNZ67YTWZATPFK','2015-10-31 15:18:17',77.07481384,'Coimbatore',11.11661243,10.90680695,NULL,76.85965729),
+ (6,'AMFUXAA7RTR6G6PMACAAW9TR64WNZA','2015-11-05 22:42:26',23.02020073,'Vellore',30.03030014,23.02020073,'2015-11-05 22:49:46',12.02999973),
+ (7,'FFY4CKAM7CRFK4PYWG9TU9K6CH9HM4','2015-11-05 22:49:19',23.02020073,'Trichy',30.03030014,23.02020073,'2015-11-05 22:49:38',12.02999973);
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_location` ENABLE KEYS */;
+
+
+
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_tariff` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_MST_tariff` (`PK_CLM_tariff_ID`,`CLM_After_Min_KMS`,`CLM_effective_from`,`CLM_effective_to`,`CLM_Base_Fare`,`CLM_min_charge`,`CLM_Base_Min_KMS`,`CLM_Ride_Charge_Per_Min`,`FK_CLM_car_model_ID`) VALUES 
+ (1,8.00000000,NULL,NULL,80.00000000,8.00,3,1.00000000,1),
+ (2,10.00000000,NULL,NULL,100.00000000,10.00,4,1.20000005,2),
+ (3,12.00000000,NULL,NULL,120.00000000,12.00,5,1.50000000,3);
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_tariff` ENABLE KEYS */;
+
+
+
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_unbook_reason` DISABLE KEYS */;
+INSERT INTO `U2_0xS_TBL_MST_unbook_reason` (`PK_CLM_reason_ID`,`CLM_reason_type_name`) VALUES 
+ (1,'Changed my Mind'),
+ (2,'Driver is late'),
+ (3,'Driver denied duty'),
+ (4,'Booked another cab');
+/*!40000 ALTER TABLE `u2_0xs_tbl_mst_unbook_reason` ENABLE KEYS */;
+
+

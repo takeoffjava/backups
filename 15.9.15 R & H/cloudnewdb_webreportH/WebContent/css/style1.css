@@ -1,0 +1,154 @@
+    body {
+        font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        background: #fff;
+        margin: 0;
+    }
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+    a:focus {
+        outline:0;
+    }
+    .container {
+        padding: 5px;
+        width:793.92px;
+/*        height:1122.24px;*/
+        height:1022.24px;
+/*        border:1px solid #f0f0f0;*/
+        margin: 0 auto;
+        
+    }
+    .container:before, .container:after {
+        content: " ";
+        display: table;
+    }
+    .container:after {
+    clear: both;
+    }
+.mainCont {
+    position: relative;
+    width:743.92px;
+    height:1002.24px;
+    margin: 0 auto;
+    
+}
+.headCont {
+    position: absolute;
+    top:0;
+    height: 135px;
+    width:733.92px;
+    border-bottom: 5px solid #F2F3F3;
+    padding: 5px 0;
+}
+.contentCont {
+    position: absolute;
+    top: 150px;
+    width: 733.92px;
+}
+.footCont {
+    position: absolute;
+    bottom:0;
+    width:733.92px;
+    border-top: 5px solid #F2F3F3;
+    padding: 5px 0;
+}
+.footerText {
+    color:#838383;
+    font-size: 18px;
+    text-align:right;
+    margin: 10px 0px;
+    text-transform: uppercase;
+
+}
+.media, .media-body {
+    overflow: hidden;
+}
+.media-object {
+    display: block;
+    margin-right: 5px;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.logoText {
+   color: #662d91;
+    font-size: 34px;
+    margin: 60px 0 0;
+    line-height: 34px;
+}
+.dateText {
+    font-size: 14px;
+    color:#838383;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top:30px;
+}
+.contentText {
+    font-size: 14px;
+    color: #000000;
+    line-height: 25px;
+    text-align: justify;
+}
+.smTitle {
+    color:#0081C9;
+    font-size: 26px;
+    font-weight: 100;
+    margin: 10px 0;
+}
+.repTable {
+	 width: 100%;
+	 margin-top: 5px;
+	 margin-bottom: 5px;
+	 background:none;
+	 
+}
+table {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom:20px;
+    background: #EFF3F3;
+}
+th {
+    text-align: left;
+}
+th,td {
+    padding: 10px 5px;
+}
+thead > tr {
+    background: #7F9192;
+    font-size:16px;
+    color:#ffffff;
+    font-weight: bold;
+    border-bottom: 1px solid #D4DBDA;
+}
+tbody > tr {
+    color:#000;
+    font-size: 14px;
+    border-bottom: 1px solid #D4DBDA;
+}
+.section {
+	clear: both;
+	padding: 0;
+	margin: 0;
+}
+.group:before,
+.group:after {
+	content:"";
+	display:table;
+}
+.group:after {
+	clear:both;
+}
+.width50 {
+	width:350px;
+	padding:10px;
+	float: left;		
+}

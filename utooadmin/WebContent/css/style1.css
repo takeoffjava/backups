@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI';
+}
+
+/*This css for background-image*/
+.bg_img{
+	 background: url(../img/login_bg.jpg) no-repeat fixed center bottom;  
+	 -webkit-background-size: 100% 100%;
+	 -moz-background-size: 100% 100%;
+	 -o-background-size: 100% 100%;
+	 background-size: 100% 100%;
+	height: 100%;
+	overflow: hidden;
+	
+	/*background: url(../img/login_bg.jpg) no-repeat fixed center center; 
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;*/
+}
+
+/*#container {
+	padding: 0;
+	max-width: 1110px;
+	margin: 30px auto;
+}*/
+
+#container {
+	max-width: 1110px;
+	margin: 30px auto;
+    position: relative;
+}
+
+/*This css for UTOO Logo-image*/
+
+#logo_img_possition{
+	position: relative;
+	background:url(../img/UTOO%20logo.png);
+	margin: 0 auto;
+	left: 47%;
+}
+
+#container2 {
+	max-width: 1110px;
+	margin: 35px auto;
+    border-radius: 8px;
+    border: 1px solid #686B70;
+    padding: 20px; 
+    width: 400px;
+    height: 220px;
+	position: relative;
+	left: 1%;
+}
+
+#container3 {
+	max-width: 1110px;
+	margin: 145px auto;
+    border-radius: 8px;
+    border: 1px solid #686B70;
+    padding: 20px; 
+    width: 390px;
+    height: 215px;
+	position: relative;
+	left: 1%;
+}
+
+
+/*This css for username,password.submit button*/
+
+.term {
+	/*background-color: rgba(0,0,0,0.8);
+	color: #5fba3d;
+	width: 400px;*/
+	height: 65px;
+}
+
+input {
+	background-color: rgba(0,0,0,0.1);
+	color: white;
+	border: 1px solid #686B70;
+	width: 350px;
+	height: 40px;
+	border-radius: 5px;
+	text-align: center;
+	font-weight: 900;
+}
+
+.textboxText{
+	color: #333 !important;
+}
+
+/*This css for submit button*/
+
+.clsButton{
+	background: url(../img/button_bg.png) repeat-x;
+	height: 37px;
+	color: #333;
+	border: none;
+}
+
+/*This is for Popup box*/ 
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background: rgba(0, 0, 0, 0.8);*/
+	/*background: url(../img/login_bg.jpg);*/
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+	 background: url(../img/login_bg.jpg) no-repeat fixed center bottom;  
+	 -webkit-background-size: 100% 100%;
+	 -moz-background-size: 100% 100%;
+	 -o-background-size: 100% 100%;
+	 background-size: 100% 100%;
+}
+
+    .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .modalDialog > div {
+        width: 800px;
+        height: 65%;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#fff, #CCC);
+        background: -webkit-linear-gradient(#fff, #CCC);
+        background: -o-linear-gradient(#fff, #CCC);
+    }
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+    opacity: 1 !important;
+}
+
+    .close:hover {
+        background: #00d9ff;
+    }
+
+.clsTermsandConditions {
+    border: solid 1px #AAA;
+    height: 80%;
+    overflow: auto;
+}

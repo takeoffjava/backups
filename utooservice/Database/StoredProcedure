@@ -1,0 +1,135 @@
+------------------------------------------------------------------------------------------------------------------------------------
+Rating
+------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  
+CREATE PROCEDURE `u2_0xp_str_pro_rating`(in p_rating_points tinyint(1),p_booking_number varchar(70),p_driver_access_id varchar(70))
+   BEGIN
+		Declare v_driver_master_ID bigint(20);
+		Declare v_total_rating tinyint(1);
+		
+		-- To Update the Rating in the Booking Table
+		update u2_0xs_tbl_mst_booking set clm_rating_points=p_rating_points,clm_rated_on=now() where clm_booking_number=p_booking_number;
+
+		-- To get the Average Rating in the Booking Table
+		set @v_driver_master_ID=(Select pk_clm_driver_id from U2_0xS_TBL_MST_drivers where clm_access_id=p_driver_access_id limit 1);
+		set @v_total_rating=(select round(avg(clm_rating_points)) from U2_0xS_TBL_MST_Booking where fk_clm_driver_id=@v_driver_master_ID and clm_rating_points<>0 limit 1);
+
+		-- To Update Total rating in the Driver Table
+		Update U2_0xS_TBL_MST_drivers set clm_total_rating=@v_total_rating where pk_clm_driver_id=@v_driver_master_ID;
+		Select @v_total_rating as current_rating; 
+   END $$
+DELIMITER ;
+------------------------------------------------------------------------------------------------------------------------------------
+
+delimiter $$
+
+CREATE  PROCEDURE `u2_0xp_str_pro_rating_from_driver`(in p_rating_points tinyint(1)
+,p_booking_number varchar(70),p_passenger_access_id varchar(70))
+BEGIN
+		Declare v_passenger_master_ID bigint(20);
+		Declare v_total_rating tinyint(1);
+		
+		-- To Update the Rating in the Booking Table
+		update u2_0xs_tbl_mst_booking set clm_rating_from_driver=p_rating_points,clm_rated_on=now() where clm_booking_number=p_booking_number;
+
+		-- To get the Average Rating in the Booking Table
+		set @v_passenger_master_ID=(Select pk_clm_passenger_id from u2_0xs_tbl_mst_passenger where clm_access_id=p_passenger_access_id limit 1);
+		set @v_total_rating=(select round(avg(clm_rating_from_driver)) from u2_0xs_tbl_mst_booking where
+ fk_clm_passenger_id=@v_passenger_master_ID and clm_rating_from_driver<>0 limit 1);
+
+		-- To Update Total rating in the Passsenger Table
+		Update u2_0xs_tbl_mst_passenger set clm_total_rating=@v_total_rating where pk_clm_passenger_id=@v_passenger_master_ID;
+		Select @v_total_rating as current_rating; 
+   END$$
+
+   ------------------------------------------------------------------------------------------------------------------------------------
+   
+delimiter $$
+
+CREATE DEFINER=`server1`@`%` PROCEDURE `u2_0xp_str_pro_invoice_processing`(
+	in pTotalKM float,pTotalMins float,pAmount float,pBooking_number varchar(70),pTariff_ID smallint,
+	pBooked_destination text,reaching_dat timestamp,reaching_latitude float,reaching_longitude float
+)
+BEGIN
+			declare rclm_base_fare,rclm_min_charge,rclm_base_min_kms,rclm_ride_charge_per_min float(13,2) default 0.0;
+			declare fTotal,fpeaktimeAmt float(13,2) unsigned default 0.0;
+			declare rCount,rInvoice_row_count,rclm_status tinyint(3) unsigned default 0;
+			declare lPromocode tinyint(3) unsigned default 10;
+			declare rclm_promo_code,duprclm_promo_code varchar(10) default null;
+			declare rfk_clm_driver_id,rfk_clm_passenger_id,rpk_clm_booking_id,lpk_clm_invoice_id bigint(15) unsigned default 0;
+			declare lResponse_code smallint(4) default 0;
+			declare lclm_invoice_no varchar(30);
+			-- Tariff Details and set values
+			Select count(*),clm_base_fare,clm_min_charge,clm_base_min_kms,clm_ride_charge_per_min 
+			into rCount,rclm_base_fare,rclm_min_charge,rclm_base_min_kms,rclm_ride_charge_per_min
+			from u2_0xs_tbl_mst_tariff 
+			where pk_clm_tariff_id=pTariff_ID;
+			
+			if(pTotalKM<rclm_base_min_kms) then
+				set pTotalKM=rclm_base_min_kms;
+			end if;
+			
+			if(rCount=0) then
+				set lResponse_code=5047;  -- Invalid Tariff ID
+			else
+				begin 
+					-- set fTotal=rclm_base_fare+((pTotalKM-rclm_base_min_kms)*rclm_min_charge)+(pTotalMins*rclm_ride_charge_per_min);
+				
+					-- Booking Details
+					set fTotal=pAmount;
+					Select pk_clm_booking_id,if(clm_promo_code='',null,clm_promo_code) as clm_promo_code,clm_status,fk_clm_driver_id,fk_clm_passenger_id
+					into rpk_clm_booking_id,rclm_promo_code,rclm_status,rfk_clm_driver_id,rfk_clm_passenger_id
+					from u2_0xs_tbl_mst_booking 
+					where clm_booking_number=pBooking_number;
+						
+					if(rfk_clm_passenger_id=0) then
+						set lResponse_code=5030; -- Invalid Booking Number
+					else
+						begin
+							if(rclm_promo_code is not null) then
+								begin
+									set fTotal=fTotal-(fTotal*(lPromocode/100));
+									set duprclm_promo_code=rclm_promo_code;
+								end;
+							else
+								set duprclm_promo_code='';
+							end if;
+								set lclm_invoice_no=(select concat('UI',' ' + ((1000000000)+ (select count(*) from u2_0xs_tbl_mst_invoice))));
+								INSERT INTO `u2_0xs_tbl_mst_invoice`
+								(`clm_amount`,`clm_distance`,`clm_invoice_no`,`clm_tax`,`clm_total`,`clm_total_mins`,
+								 `fk_clm_booking_id`,`fk_clm_tariff_id`)
+								 VALUES
+								 (pAmount,pTotalKM,lclm_invoice_no,0,fTotal,pTotalMins,rpk_clm_booking_id,pTariff_ID);
+								  select count(*) into rInvoice_row_count from u2_0xs_tbl_mst_invoice where clm_invoice_no=lclm_invoice_no;
+								  if(rInvoice_row_count=0) then
+									 set lResponse_code=5005;
+								  else
+										begin
+											if(rclm_promo_code is not null) then
+												update u2_0xs_tbl_mst_passenger set clm_used_promo_code=1 where pk_clm_passenger_id=rfk_clm_passenger_id;
+											end if;
+												update u2_0xs_tbl_mst_drivers set clm_status=0 where pk_clm_driver_id=rfk_clm_driver_id;
+												update u2_0xs_tbl_mst_booking set clm_promo_code=duprclm_promo_code,
+														clm_reaching_dat=reaching_dat,
+														clm_reaching_latitude=reaching_latitude,
+														clm_reaching_longitude=reaching_longitude,
+														clm_status=3,
+														clm_destination=pBooked_destination where pk_clm_booking_id=rpk_clm_booking_id;
+												INSERT INTO `u2_0xs_tbl_mst_driver_miles`
+												(`clm_miles_achieved`,`clm_target_miles`,`fk_clm_driver_id`)
+												VALUES(pTotalKM,5000,rfk_clm_driver_id);
+										end;
+								  end if;
+						end;
+					end if;
+				end;
+			end if;
+			if(lResponse_code=0) then
+				Select lclm_invoice_no as Invoice_NO;
+			else
+				select lResponse_code as Response_code;
+			end if;
+    END$$
+
+   

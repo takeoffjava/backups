@@ -1,0 +1,73 @@
+.loginDash {
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: opacity 1s ease 0s;
+    z-index: 0;
+            }
+ .loginSide {
+ background:#fff;
+    height: 100%;
+    width: 35%;
+    right: 0;
+    opacity: 1;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: opacity 1s ease 0s;
+    z-index: 0;
+    width: 385px;
+    padding:30px;
+        }
+        .loginSide h1 {
+        	color:#8674a6; 
+        	text-align:center;
+        }
+.loginControlTypes {
+    margin: 100px 0 0;
+    height:500px;
+		}
+ .loginControl {
+      width:95%;
+      height:30px !important;
+      margin-bottom: 30px !important;
+            }
+ .loginLinks a {
+      color:#fff;
+      text-decoration: none;
+            }
+@media only screen and (min-width: 768px) and (max-width: 979px){
+
+}
+@media only screen and (max-width: 767px) {
+
+}
+@media only screen and (max-width: 680px){
+	.loginSide {
+		width:96%;
+		padding:2%;
+		min-height:500px;
+		position:relative;
+	}
+}
+@media only screen and (max-width: 480px){
+	.loginSide {
+		width:96%;
+		padding:2%;
+		min-height:500px;
+		position:relative;
+	}
+	.loginControlTypes {
+		margin:50px 0 0 ;
+		padding:20px;
+		height:300px;
+	}
+	.loginSide p{
+		 font-size: 13px;
+    padding: 5px 10px;
+    text-align: center;
+	}
+}

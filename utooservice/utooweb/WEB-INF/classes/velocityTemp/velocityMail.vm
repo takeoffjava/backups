@@ -1,0 +1,196 @@
+
+    <html>
+    <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       <title>INVOICE DETAILS</title>
+       <style type="text/css">
+        a {color: #4A72AF;}
+        body, #header h1, #header h2, p {margin: 0; padding: 0;}
+        #main {border-top: 3px solid #FBAB56;border-left: 1px solid #cfcece;border-right: 1px solid #cfcece;border-bottom: medium none;}
+        img {display: block;}
+        #top-message p, #bottom-message p {color: #ffffff; font-size: 12px; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; }
+        #bottom-message a { color:#f0f0f0 !important; }
+        .above-bottom { border-right: 1px solid #cfcece;border-left: 1px solid #cfcece;;border-bottom: 1px solid #cfcece;position:relative;}
+         .above-bottom:after {
+        content: "";
+    position: absolute;
+    top: -15px;
+    left: 285px;
+    border-style: solid;
+    border-width: 0 15px 15px;
+    border-color: #333333 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    }
+           .above-bottom p { color: #fff;font-size:14px; }
+      #bottom-message { border-right: 1px solid #cfcece;border-left: 1px solid #cfcece;;border-bottom: 1px solid #cfcece;}
+
+        #header h1 {color: #333333 !important; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; font-size: 24px; margin-bottom: 0!important; padding-bottom: 0; }
+        #header h2 {color: #333333 !important; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; font-size: 24px; margin-bottom: 0 !important; padding-bottom: 0; }
+        #header p {color: #333333; font-family:Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; font-size: 14px;  }
+        h1, h2, h3, h4, h5, h6 {margin:0 0 10px;}
+        h2 {font-size: 48px; color: #333333; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; }
+        h3 {font-size: 28px; color: #333333 !important; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; }
+        h4 {font-size: 22px; color: #333333 !important; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; }
+        h5 {font-size: 18px; color: #333333 !important; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; }
+        p {font-size: 16px; color: #333333; font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif; line-height: 1.5;}
+           .alignCenter { text-align: center;}
+       </style>
+    </head>
+
+
+
+    <body>
+
+
+
+    <table width="100%" cellpadding="0" cellspacing="0" bgcolor="ffffff"><tr><td>
+
+
+
+    <table id="top-message" cellpadding="20" cellspacing="0" width="600" align="center">
+            <tr>
+                <td align="center">
+                </td>
+            </tr>
+        </table><!-- top message -->
+        <table id="main" width="600" align="center" cellpadding="20" cellspacing="0" bgcolor="F9AA54">
+            <tr>
+                <td>
+                    <table id="header" cellpadding="15" cellspacing="0"  bgcolor="F9AA54" width="600">
+                        <tr>
+                            <td width="50" bgcolor="" style=""><img src="http://www.youtoo.co.in/utooserver/mailTemplates/UTOO_logo.png" width="65" /></td>
+                            <td  bgcolor="" style="text-align:right;">
+                                <p style="margin:0 0 5px;color:#333333;font-size:18px;">$passengerName</p>
+                                <p style="margin:0 0 5px;color:#333333;font-size:16px;">Invoice No. $pbrNumber</p></td>
+                        </tr>
+                    </table><!-- header -->
+
+                   </td>
+            </tr><!-- header -->
+
+            <tr>
+                <td>
+                    <table width="600" id="content-1" cellpadding="15" cellspacing="0" align="center">
+                        <tr>
+                            <!--pickup-->
+                            <td width="225">
+                               <p style="text-align:left;">Pickup</p>
+                                <h3 style="text-align:left;"><span>$sourceLocation1,</span>
+                                <span style="display:block;font-size:16px;">$sourceLocation2</span>
+                                </h3>
+                            </td>
+                            <td width="50">
+                            <img src="http://www.youtoo.co.in/utooserver/mailTemplates/arrow_ico.png" />
+                            </td>
+                            <!--drop-->
+                            <td width="225">
+                            <p style="text-align:right;">Drop</p>
+                                <h3 style="text-align:right;"><span>$destLocation1,</span>
+                                    <span style="display:block;font-size:16px;">$destLocation2</span>
+                                </h3>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                        <td>
+                            <p style="font-size:18px;">Total Distance  : $totalDistance</p>
+                            <p style="font-size:18px;">Total Ride Time : $totalMinutes</p>
+                        </td>
+                            <td width="50"></td>
+                        <td width="">
+                            <p style="font-size:55px;text-align:right;"><img src="http://www.youtoo.co.in/utooserver/mailTemplates/rupeesym.png" width="20" style="display:inline;" alt="Rs." /> $totalAmount</p>
+                        </td>
+                        </tr>
+                    </table><!-- content 1 -->
+                </td>
+            </tr><!-- content 1 -->
+            <tr>
+                <td>
+                    <table cellpadding="15" cellspacing="0"  width="600">
+                     <tr>
+                        <td ><p style="font-size: 24px;padding-bottom: 5px;">Fare Breakup</p></td>
+
+                        </tr>
+                    </table>
+                    <table id="content-2" cellpadding="15" cellspacing="0"  width="600" style="border:1px solid rgba(0, 0, 0, 0.46)">
+                         <!--fare breakup-->
+
+                        <tr>
+                            <td width="33%">
+                                <p style="font-size:18px;text-align:center;">Base fare for $baseMinKms km</p>
+                                <p style="font-size:40px;text-align:center">$baseFare</p>
+                            </td>
+                            <td width="33%">
+                                <p style="font-size:18px;text-align:center">Rate after $baseMinKms km</p>
+                                 <p style="font-size:40px;text-align:center">$rateAfterMinKms</p>
+                            </td>
+                            <td width="33%">
+                                <p style="font-size:18px;text-align:center">Ride time charge</p>
+                                 <p style="font-size:40px;text-align:center">$totalMinutes</p>
+                            </td>
+                        </tr>
+                        <!--fare breakup-->
+
+                    </table><!-- content-2 -->
+
+                    <!--booking details-->
+                    <table cellpadding="8">
+                        <tr>
+                        <td>
+                            <p style="font-size: 24px;padding-bottom: 5px;">Booking Details</p>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td><p>Cab Type</p></td>
+                            <td><p>$cabType</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Booking Date</p></td>
+                            <td><p>$bookingDate</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Booking Email ID</p></td>
+                            <td><p>$bookingEmail</p></td>
+                        </tr>
+                    </table>
+                    <!--booking details-->
+
+                     <table cellpadding="8">
+                        <tbody>
+                    <tr><td width="600"><p style="margin-bottom:10px;">If you didn't make this booking, <a href="mailto:support@strobilanthes.com">Report Abuse</a></p>
+                <p style="margin-bottom:10px;">Minimum bill of Rs. $baseFare for the first $baseMinKms km and Rs. $afterMinKms/km thereafter. <br/>Ride time at Rs. $waitingCharge / min, includes waiting time during the trip.</p></td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+
+                </td>
+            </tr><!-- content-2 -->
+
+<tr>
+            <td>
+               <table class="above-bottom" cellpadding="20" cellspacing="0" width="600"  bgcolor="333333">
+            <tr>
+                <td >
+                    <p>For queries or complaints, please mail us <a href="mailto:support@strobilanthes.com">support@strobilanthes.com</a> or call us +9144 4001 1028</p>
+                    <p>This is an electronically generated invoice and does not require signature</p>
+
+                  </td>
+            </tr>
+        </table>
+            </td>
+            </tr>
+
+
+    </table><!-- main -->
+
+        <!-- top message -->
+    </td></tr></table><!-- wrapper -->
+
+
+
+    </body>
+    </html>

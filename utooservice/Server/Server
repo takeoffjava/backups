@@ -1,0 +1,17 @@
+IP: 192.168.101.190
+
+
+Tomcat- Manager : 
+Host 		: http://192.168.101.190/ROOTx/
+Username 	: nutansrplus
+password 	: 053320KDEF
+
+
+Database- Manager 
+Host		: 192.168.101.190:5050
+Username 	: testing
+password 	: testing12
+
+
+
+

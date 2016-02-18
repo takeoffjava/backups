@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	<mvc:annotation-driven />
+
+	<bean id="bAdmin" class="org.strobs.utoo.web.services.controllers.cAdmin" />
+	<bean id="bInitial" class="org.strobs.utoo.web.services.controllers.cInitial" />
+	<bean id="bPassenger" class="org.strobs.utoo.web.services.controllers.cPassenger" />
+	<bean id="bDriver" class="org.strobs.utoo.web.services.controllers.cDriver" />
+	<bean id="bBook" class="org.strobs.utoo.web.services.controllers.cBook" />
+	<bean id="bPrivacy" class="org.strobs.utoo.web.services.controllers.cPrivacy" />
+	<bean id="bcTestingLayer" class="org.strobs.utoo.web.services.controllers.cTestingLayer" />
+	<bean id="cPayment" class="org.strobs.utoo.web.services.controllers.cPayment" />
+	
+	<context:annotation-config />
+	<context:component-scan base-package="org.strobs.utoo.web.services.pservice" />
+	<task:annotation-driven />
+</beans>
