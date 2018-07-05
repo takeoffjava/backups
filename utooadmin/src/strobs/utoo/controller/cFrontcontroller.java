@@ -24,7 +24,7 @@ public class cFrontcontroller
 	public String index(HttpSession session) 
 	{  
 		session.setAttribute("islogin","0"); 
-		return "login";  
+		return "login";  //test push 
 	}
 	@RequestMapping("/logout_main")  
 	public String logout_main(HttpSession session) 
